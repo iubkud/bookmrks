@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bookmrks.io</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<title>Bookmrks.io</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+	<%= render 'layouts/shim' %>
 </head>
 <body>
-
-<%= yield %>
-
+	<div class="navbar navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-section">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<%= link_to "bookmrks.io", "#", :id => "logo", :class => "navbar-brand" %>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><%= link_to "About", '#' %></li>
+					<li><%= link_to "Log In", '#' %></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<%= render 'layouts/header' %>
+		<%= yield %>
+		<%= render 'layouts/footer' %>
+	</div>
 </body>
 </html>
