@@ -57,10 +57,14 @@ p {
 	}
 }
 
+#new-bookmark-button {
+    margin-top: 8px;
+}
+
 
 /* footer */
 footer {
-    margin-top: 45px;
+    margin-top: 50px;
     padding-top: 5px;
     border-top: 1px solid $medium-light-gray;
     color: $light-gray;
@@ -108,6 +112,24 @@ input {
     @extend .has-error;
     .form-control {
         color: $state-danger-text;
+    }
+}
+
+/* bookmarks */
+
+.bookmarks {
+    list-style: none;
+    padding: 0;
+    li {
+        padding: 10px 0;
+        border-top: 1px solid #e8e8e8;
+    }
+    .bookmark-title {
+        display: block;
+        margin-left: 30px;
+        a:hover {
+            text-decoration: none;
+        }
     }
 }
 /* miscellaneous */
