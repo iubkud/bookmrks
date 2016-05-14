@@ -7,9 +7,4 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     @user = users(:matt)
   end
 
-  test "profile display" do
-    get user_path(@user)
-    assert_template 'users/show'
-    assert_match @user.bookmarks.count.to_s, response.body
-  end
 end
