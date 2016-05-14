@@ -1,6 +1,7 @@
 class FoldersController < ApplicationController
   before_action :logged_in_user,    only: [:show, :create, :destroy]
   before_action :user_owns_folders, only: [:show, :create, :destroy]
+  
   def show
     @folder = Folder.find(params[:id])
     @bookmarks = @folder.bookmarks

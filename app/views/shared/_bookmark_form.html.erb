@@ -1,13 +1,17 @@
-<%= form_for(Bookmark.new, url: bookmarks_path) do |f| %>
-	<div class="form-group">
-		<%= f.label :title %>
-		<%= f.text_field :title, class: "form-control" %>
-	</div>
+<% if logged_in? %>
+	<%= form_for(Bookmark.new, url: bookmarks_path) do |f| %>
+		<div class="form-group">
+			<%= f.label :title %>
+			<%= f.text_field :title, class: "form-control" %>
+		</div>
 
-	<div class="form-group">
-		<%= f.label :url %>
-		<%= f.text_field :url, class: "form-control" %>
-	</div>
+		<div class="form-group">
+			<%= f.label :url %>
+			<%= f.text_field :url, class: "form-control" %>
+		</div>
 
-	<%= f.submit "Add Bookmark", class: "btn btn-primary" %>
+		<%= f.select(:folder, current_user.folders.all.collect {|a| [a.name, a.id]}) %>
+
+		<%= f.submit "Add Bookmark", class: "btn btn-primary" %>
+	<% end %>
 <% end %>
