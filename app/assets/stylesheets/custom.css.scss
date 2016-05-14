@@ -33,7 +33,7 @@ textarea {
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
-	line-height: 1;
+	line-height: 1.2;
 }
 
 p {
@@ -59,6 +59,15 @@ p {
 
 #new-bookmark-button {
     margin-top: 8px;
+}
+
+/* welcome page (home.html.erb)*/
+#home-jumbo {
+    background-image: image-url("jumbotron-1.png");
+    color: $white;
+    a {
+        margin-top: 10px;
+    }
 }
 
 /* "sidebar" */
@@ -141,7 +150,6 @@ input {
 }
 
 /* miscellaneous */
-
 .debug_dump {
     clear: both;
     float: left;
