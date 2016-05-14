@@ -3,6 +3,7 @@ require 'test_helper'
 class BookmarksControllerTest < ActionController::TestCase
   def setup
     @bookmark = bookmarks(:google)
+    @folder   = folders(:one)
   end
 
   test "should redirect create when not logged in" do
@@ -18,4 +19,5 @@ class BookmarksControllerTest < ActionController::TestCase
     end
     assert_redirected_to login_url
   end
+
 end

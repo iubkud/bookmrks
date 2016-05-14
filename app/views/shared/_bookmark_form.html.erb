@@ -10,7 +10,10 @@
 			<%= f.text_field :url, class: "form-control" %>
 		</div>
 
-		<%= f.select(:folder, current_user.folders.all.collect {|a| [a.name, a.id]}) %>
+		<div class="form-group">
+			<%= f.label "Select Folder" %>
+			<%= f.select(:folder_id, current_user.folders.all.collect {|a| [a.name, a.id]}) %>
+		</div>
 
 		<%= f.submit "Add Bookmark", class: "btn btn-primary" %>
 	<% end %>

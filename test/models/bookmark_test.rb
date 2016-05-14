@@ -3,7 +3,7 @@ require 'test_helper'
 class BookmarkTest < ActiveSupport::TestCase
   def setup
     @user = users(:matt)
-    @bookmark = @user.bookmarks.build(title: "Lorem Ipsum", url: "http://www.google.com")
+    @bookmark = @user.bookmarks.build(title: "Lorem Ipsum", url: "http://www.google.com", folder_id: 1)
   end
 
   test "should be valid" do

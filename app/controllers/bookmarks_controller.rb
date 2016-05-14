@@ -8,7 +8,7 @@ class BookmarksController < ApplicationController
       redirect_to :back
     else
       flash[:danger] = "Something went wrong!"
-      render 'static_pages/home'
+      redirect_to :back
     end
   end
 
@@ -18,6 +18,6 @@ class BookmarksController < ApplicationController
   private
 
     def bookmark_params
-      params.require(:bookmark).permit(:title, :url)
+      params.require(:bookmark).permit(:title, :url, :folder_id)
     end
 end
