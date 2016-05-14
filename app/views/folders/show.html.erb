@@ -1,0 +1,6 @@
+<h1><%= @folder.name %></h1>
+<ul class="bookmarks">
+	<% if @folder.bookmarks.any? %>
+			<%= render @bookmarks %>
+	<% end %>
+</ul>
