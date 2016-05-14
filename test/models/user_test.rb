@@ -71,7 +71,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "delete bookmarks when user is destroyed" do
     @user.save
-    @user.bookmarks.create!(title: "Lorem Ipsum")
+    @user.bookmarks.create!(title: "Lorem Ipsum", url: "http://www.google.com")
     assert_difference 'Bookmark.count', -1 do
       @user.destroy
     end
