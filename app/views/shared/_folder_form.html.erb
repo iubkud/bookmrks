@@ -1,0 +1,8 @@
+<%= form_for(Folder.new, url: folders_path) do |f| %>
+	<div class="form-group">
+		<%= f.label :name %>
+		<%= f.text_field :name, class: "form-control" %>
+	</div>
+
+	<%= f.submit "Add Folder", class: "btn btn-primary" %>
+<% end %>

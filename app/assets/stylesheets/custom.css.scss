@@ -61,6 +61,13 @@ p {
     margin-top: 8px;
 }
 
+/* "sidebar" */
+
+#new-folder-button {
+    display: block;
+    margin: 0 auto;
+}
+
 
 /* footer */
 footer {
@@ -132,6 +139,7 @@ input {
         }
     }
 }
+
 /* miscellaneous */
 
 .debug_dump {
