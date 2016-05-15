@@ -8,12 +8,12 @@
 			</button>
 			<%= link_to "bookmrks.io", current_user, :id => "logo", :class => "navbar-brand" %>
 		</div>
-		<div class="collapse navbar-collapse">
+		<div class="collapse navbar-collapse" id="navbar-collapse-section">
 			<ul class="nav navbar-nav navbar-right">
 				<% if logged_in? %>
-					<li><button type="button" class="btn btn-primary" id="new-bookmark-button" data-toggle="modal" data-target="#new-bookmark-modal">Add Bookmark</button></li>
 					<li><%= link_to "Settings", edit_user_path(current_user) %></li>
 					<li><%= link_to "Log out", logout_path, method: "delete" %></li>
+					<li><button type="button" class="btn btn-primary" id="new-bookmark-button" data-toggle="modal" data-target="#new-bookmark-modal">Add Bookmark</button></li>
 				<% else %>
 					<li><%= link_to "Log In", login_path %></li>
 				<% end %>

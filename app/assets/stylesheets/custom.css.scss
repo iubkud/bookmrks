@@ -6,6 +6,10 @@ $white: #fff;
 $light-gray: #777;
 $medium-light-gray: #eaeaea;
 
+$sm-width: 768px;
+$md-width: 992px;
+$xl-width: 1200px;
+
 @mixin box_sizing {
     -moz-box-sizing:    border-box;
     -webkit-box-sizing: border-box;
@@ -55,6 +59,17 @@ p {
 		color: $white;
 		text-decoration: none;
 	}
+}
+@media screen and (max-width: $sm-width) {
+    #new-bookmark-button{
+        display: block;
+        margin: 0 auto;
+    }
+}
+@media screen and (min-width: $sm-width) {
+    #new-bookmark-button{
+        margin-right: 10px;
+    }
 }
 
 #new-bookmark-button {
