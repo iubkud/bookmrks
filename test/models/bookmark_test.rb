@@ -28,4 +28,14 @@ class BookmarkTest < ActiveSupport::TestCase
   test "sort bookmarks by my recent first" do
     assert_equal bookmarks(:most_recent), Bookmark.first
   end
+
+  test "url must be not be invalid" do
+    @bookmark.url = "foo.com"
+    assert_not @bookmark.valid?
+  end
+
+  test "must accept valid urls" do
+    @bookmark.url = "http://www.google.com"
+    assert @bookmark.valid?
+  end
 end
