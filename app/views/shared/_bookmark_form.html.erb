@@ -11,6 +11,11 @@
 		</div>
 
 		<div class="form-group">
+			<%= f.label :tag_list %>
+			<%= f.text_field :tag_list, class: "form-control" %>
+		</div>
+
+		<div class="form-group">
 			<%= f.label "Select Folder" %>
 			<%= f.select(:folder_id, current_user.folders.all.collect {|a| [a.name, a.id]}) %>
 		</div>

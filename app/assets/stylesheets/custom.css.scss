@@ -158,9 +158,13 @@ input {
     .bookmark-title {
         display: block;
         margin-left: 30px;
+        font-size: 1.3em;
         a:hover {
             text-decoration: none;
         }
+    }
+    .bookmark-tags {
+        margin-left: 40px;
     }
 }
 
