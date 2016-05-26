@@ -18,6 +18,21 @@ class FoldersController < ApplicationController
     end
   end
 
+  def edit
+    @folder = Folder.find(params[:id])
+  end
+
+  def update
+    @folder = Folder.find(params[:id])
+    if @folder.update_attributes(folder_params)
+      flash[:success] = "Updated Folder!"
+      redirect_to @folder
+    else
+      flash[:danger] = "Check your folder settings"
+      render 'edit'
+    end
+  end
+
   def destroy
   end
 

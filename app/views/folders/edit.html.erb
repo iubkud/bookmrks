@@ -1,0 +1,15 @@
+<h1>Editing <%= @folder.name %></h1>
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<%= form_for(@folder) do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+			<div class="form-group">
+				<%= f.label :name %>
+				<%= f.text_field :name, class: "form-control" %>
+			</div>
+
+			<%= f.submit "Update Folder", class: "btn btn-primary" %>
+		<% end %>
+	</div>
+</div>
