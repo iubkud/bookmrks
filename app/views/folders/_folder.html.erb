@@ -1,3 +1,3 @@
 <li class="list-group-item" id="folder-<%= folder.id %>">
-	<span class="name"><%= link_to folder.name, folder %> <%= link_to "edit", edit_folder_path, :class => "edit-folder-link" %></span>
+	<span class="name"><%= link_to folder.name, folder %> <%= link_to "edit", edit_folder_path(folder.id), :class => "edit-folder-link" %></span>
 </li>

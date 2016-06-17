@@ -1,11 +1,16 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:show, :edit, :update]
   before_action :correct_user,   only: [:show, :edit, :update]
+  respond_to :json
 
   def show
     @user = User.find(params[:id])
     @bookmarks = @user.bookmarks.paginate(page: params[:page])
     @folders = @user.folders
+    render :json => { :user      => @user,
+                      :bookmarks => @bookmarks,
+                      :folders   => @folders,
+                      status: :ok }
   end
 
   def new
@@ -16,10 +21,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
-      flash[:info] = "Welcome to bookmrks.io! Please check your email to activate your account."
-      redirect_to root_url
+      render :json => { :user => @user, status: :created }
     else
-      render 'new'
+      render :json => { :user => @user.errors, status: :unprocessable_entity }
     end
   end
 
@@ -30,10 +34,9 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "Updated!"
-      redirect_to @user
+      render :json => { :user => @user, status: :ok }
     else
-      render 'edit'
+      render :json => { :user => @user.errors, status: :unprocessable_entity }
     end
   end
 
