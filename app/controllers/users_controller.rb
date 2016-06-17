@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:show, :edit, :update]
   before_action :correct_user,   only: [:show, :edit, :update]
+  skip_before_action :verify_authenticity_token
   respond_to :json
 
   def show
@@ -21,9 +22,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
-      render :json => { :user => @user, status: :created }
+      render :json => { :created => "true",
+                        :message => "Please check your email to activate your account." }
     else
-      render :json => { :user => @user.errors, status: :unprocessable_entity }
+      render :json => { :created => "false",
+                        :message => "A problem occured. Please try again later." }
     end
   end
 
@@ -34,15 +37,16 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      render :json => { :user => @user, status: :ok }
+      render :json => { :updated => "true" }
     else
-      render :json => { :user => @user.errors, status: :unprocessable_entity }
+      render :json => { :updated => "false",
+                        :user_errors => @user.errors }
     end
   end
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.permit(:name, :email, :password, :password_confirmation)
     end
 
     def correct_user
