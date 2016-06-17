@@ -1,0 +1,3 @@
+[submodule "bookmrks-web"]
+	path = bookmrks-web
+	url = https://github.com/iubkud/bookmrks-web.git
