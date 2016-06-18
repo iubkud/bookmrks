@@ -13,5 +13,4 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :bookmarks,           only: [:create, :destroy]
   resources :tags,                only: [:show]
-  # resources :folders,             only: [:show, :create, :destroy]
 end
