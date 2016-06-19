@@ -37,10 +37,11 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      render :json => { :updated => "true" }
+      render :json => { :updated => "true",
+                        :message => "User updated successfully." }
     else
       render :json => { :updated => "false",
-                        :user_errors => @user.errors }
+                        :message => "A problem occured. Please try again later." }
     end
   end
 
